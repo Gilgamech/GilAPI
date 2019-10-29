@@ -11,10 +11,10 @@
     "test": "node test.js"
   },
   "dependencies": {
-    "sparational": "1.1.5",
+    "sparational": "1.1.8",
     "pg": "7.4.0",
     "pg-hstore": "2.3.2",
-    "sequelize": "4.22.5",
+    "sequelize": "5.21.1",
     "ejs": "2.5.6",
     "express": "4.15.2",
     "cookie-parser": "1.4.3",
