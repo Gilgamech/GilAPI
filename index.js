@@ -297,7 +297,7 @@ app.get(/\S+/, function(request, response) {
 app.post('/fruitbotwin', function(request, response){
 	$lane = "fruitbotwins"
 	sparational.sequelize.query("UPDATE Fruitbot SET "+$lane+"="+$lane+"+1;SELECT "+$lane+" from Fruitbot").then(([$PagesResults, metadata]) => {
-		response.send(JSON.stringify(metadata))
+		response.send(JSON.stringify($PagesResults))
 	}).catch(function(err) {
 		console.log($lane+" error" +err.msg); 
 		response.send($lane+" error")
@@ -307,7 +307,7 @@ app.post('/fruitbotwin', function(request, response){
 app.post('/fruitbotloss', function(request, response){
 	$lane = "simplebotwins"
 	sparational.sequelize.query("UPDATE Fruitbot SET "+$lane+"="+$lane+"+1;SELECT "+$lane+" from Fruitbot").then(([$PagesResults, metadata]) => {
-		response.send(JSON.stringify(metadata))
+		response.send(JSON.stringify($PagesResults))
 	}).catch(function(err) {
 		console.log($lane+" error" +err.msg); 
 		response.send($lane+" error")
@@ -317,7 +317,7 @@ app.post('/fruitbotloss', function(request, response){
 app.post('/fruitbottie', function(request, response){
 	$lane = "botstie"
 	sparational.sequelize.query("UPDATE Fruitbot SET "+$lane+"="+$lane+"+1;SELECT "+$lane+" from Fruitbot").then(([$PagesResults, metadata]) => {
-		response.send(JSON.stringify(metadata))
+		response.send(JSON.stringify($PagesResults))
 	}).catch(function(err) {
 		console.log($lane+" error" +err.msg); 
 		response.send($lane+" error")
@@ -327,7 +327,7 @@ app.post('/fruitbottie', function(request, response){
 app.post('/fruitbottotals', function(request, response){
 	$lane = "fruitbottotals"
 	sparational.sequelize.query("SELECT * from Fruitbot").then(([$PagesResults, metadata]) => {
-		response.send(JSON.stringify(metadata))
+		response.send(JSON.stringify($PagesResults))
 	}).catch(function(err) {
 		console.log($lane+" error" +err.msg); 
 		response.send($lane+" error")
