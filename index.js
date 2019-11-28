@@ -464,6 +464,46 @@ app.post('/FakeCoin', function(req, res){
    if(req.session.page_views){
       req.session.page_views++;
       res.send("Hi " + req.session.userName+ ", You visited this page " + req.session.page_views + " times");
+app.post('/fruitbotwin', function(request, response){
+	$lane = "fruitbotwins"
+	sparational.sequelize.query("UPDATE Fruitbot SET "+$lane+"="+$lane+"+1;SELECT "+$lane+" from Fruitbot").then(([$PagesResults, metadata]) => {
+		response.send(JSON.stringify(metadata))
+	}).catch(function(err) {
+		console.log($lane+" error" +err.msg); 
+		response.send($lane+" error")
+	});//end Pages query
+});
+
+app.post('/fruitbotloss', function(request, response){
+	$lane = "simplebotwins"
+	sparational.sequelize.query("UPDATE Fruitbot SET "+$lane+"="+$lane+"+1;SELECT "+$lane+" from Fruitbot").then(([$PagesResults, metadata]) => {
+		response.send(JSON.stringify(metadata))
+	}).catch(function(err) {
+		console.log($lane+" error" +err.msg); 
+		response.send($lane+" error")
+	});//end Pages query
+});
+
+app.post('/fruitbottie', function(request, response){
+	$lane = "botstie"
+	sparational.sequelize.query("UPDATE Fruitbot SET "+$lane+"="+$lane+"+1;SELECT "+$lane+" from Fruitbot").then(([$PagesResults, metadata]) => {
+		response.send(JSON.stringify(metadata))
+	}).catch(function(err) {
+		console.log($lane+" error" +err.msg); 
+		response.send($lane+" error")
+	});//end Pages query
+});
+
+app.post('/fruitbottotals', function(request, response){
+	$lane = "fruitbottotals"
+	sparational.sequelize.query("SELECT * from Fruitbot").then(([$PagesResults, metadata]) => {
+		response.send(JSON.stringify(metadata))
+	}).catch(function(err) {
+		console.log($lane+" error" +err.msg); 
+		response.send($lane+" error")
+	});//end Pages query
+});
+
    } else {
       req.session.page_views = 1;
       res.send("Welcome to this page for the first time, "+req.session.userName+"!");
